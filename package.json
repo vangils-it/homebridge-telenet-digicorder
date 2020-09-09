@@ -1,0 +1,52 @@
+{
+  "name": "homebridge-digicorder",
+  "version": "1.0.0",
+  "description": "Telenet digicorder as TV support for Homebridge",
+  "license": "MIT",
+  "keywords": [
+    "Telenet Digicorder",
+    "Telenet Digicorder Homebridge",
+    "homebridge-plugin",
+    "homebridge"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vangils-it/homebridge-telenet-digicorder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vangils-it/homebridge-telenet-digicorder/issues"
+  },
+  "engines": {
+    "node": ">=11.0.0",
+    "homebridge": ">=1.0.0"
+  },
+  "main": "dist/nhc2-platform.js",
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "rimraf ./dist && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "npm run build",
+    "lint": "tslint -p tsconfig.json --fix",
+    "prepare": "npm run build",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "postpublish": "npm run clean"
+  },
+  "dependencies": {
+    "@types/node": "^13.13.4",
+    "rxjs": "^6.5.5",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "homebridge": "^1.1.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0"
+  }
+}
